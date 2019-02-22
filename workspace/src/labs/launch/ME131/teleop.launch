@@ -1,0 +1,22 @@
+<launch>
+    <!-- SYSTEM MODEL -->
+    <!-- vehicle parameters -->
+    <param name="mass" type="double" value="2000" />
+
+    <!-- control parameters -->
+    <param name="air_drag_coeff" type="double" value="0.01308" />
+    <param name="friction" type="double" value="0.01711" />
+
+
+    <!-- Controller -->
+    <node pkg="labs" type="teleop.py" name="relay" output="screen"/>
+
+    <!-- Controller -->
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="keyboard" />
+
+    <!-- Simulator -->
+    <node pkg="labs" type="vehicle_simulator.py" name="simulator" />
+
+    <!-- Visualize the vehicel trajectory -->
+    <node pkg="labs" type="view_car_trajectory.py" name="visualization"  />
+</launch>
